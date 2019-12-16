@@ -21,8 +21,9 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class SwaggerConfig {
 
 	@Bean
-	public Docket createRestApi(@Value("${api.swagger.title}") String title,
-			@Value("${api.swagger.contact}") String contact, @Value("${api.swagger.version}") String version) {
+	public Docket createRestApi(@Value("${api.swagger.title:unassign}") String title,
+			@Value("${api.swagger.contact:unassign}") String contact,
+			@Value("${api.swagger.version:unassign}") String version) {
 		return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo(title, contact, version)).select()
 				.apis(RequestHandlerSelectors.withClassAnnotation(Api.class)).paths(PathSelectors.any()).build();
 	}
