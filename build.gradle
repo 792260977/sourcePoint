@@ -9,14 +9,20 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
 repositories {
-	mavenCentral()
+	maven {
+			url 'http://maven.aliyun.com/nexus/content/groups/public/'
+		}
+	//mavenCentral()
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter'
-	testImplementation('org.springframework.boot:spring-boot-starter-test') {
-		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-	}
+	 compile('org.springframework.boot:spring-boot-starter')
+     compile('org.springframework.boot:spring-boot-starter-web')
+     testCompile('org.springframework.boot:spring-boot-starter-test')
+     
+     compile('io.springfox:springfox-swagger2:2.5.0')
+     compile('io.springfox:springfox-swagger-ui:2.5.0')//swagger-ui
+	
 }
 
 test {
