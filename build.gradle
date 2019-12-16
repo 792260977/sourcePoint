@@ -28,3 +28,16 @@ dependencies {
 test {
 	useJUnitPlatform()
 }
+
+//打包相关
+jar {
+	manifestContentCharset 'utf-8'
+    metadataCharset 'utf-8'
+    manifest {
+        attributes 'Main-Class': 'com.source.point.sourcePoint.SourcePointApplication'
+    }
+    //将项目打包成可执行的jar时，在项目中引入了其它需要的jar包
+     from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
