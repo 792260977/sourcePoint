@@ -29,6 +29,7 @@ test {
 	useJUnitPlatform()
 }
 
+/*
 //打包相关
 jar {
 	manifestContentCharset 'utf-8'
@@ -41,3 +42,4 @@ jar {
         configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
     }
 }
+*/
