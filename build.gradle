@@ -4,9 +4,17 @@ plugins {
 	id 'java'
 }
 
+dependencyManagement {
+    imports {
+    	// 插件org.springframework.boot已经包含了版本管理功能,这个声明可以不要
+        // mavenBom "org.springframework.boot:spring-boot-starter-parent:2.2.2.RELEASE"
+        mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Hoxton.RELEASE'
+    }
+}
+
 group = 'com.source.point'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '1.8'
+sourceCompatibility = '1.8'//jvm版本要求
 
 repositories {
 	maven {
@@ -22,6 +30,8 @@ dependencies {
      
      compile('io.springfox:springfox-swagger2:2.5.0')
      compile('io.springfox:springfox-swagger-ui:2.5.0')//swagger-ui
+     
+     compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-server')//引入的Eureka-server
 	
 }
 
