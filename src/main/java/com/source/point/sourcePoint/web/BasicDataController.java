@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.annotations.Api;
 
-//@Api(description = "基础数据相关", tags = "BASIC-DATA")
 @RestController
 @RequestMapping("/api")
 @Api(description = "基础数据相关", tags = "BASIC-DATA")
