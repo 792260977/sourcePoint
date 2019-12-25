@@ -24,15 +24,33 @@ repositories {
 }
 
 dependencies {
+	//spring boot 基础配置
 	 compile('org.springframework.boot:spring-boot-starter')
      compile('org.springframework.boot:spring-boot-starter-web')
      testCompile('org.springframework.boot:spring-boot-starter-test')
      
+     //swagger-ui
      compile('io.springfox:springfox-swagger2:2.5.0')
-     compile('io.springfox:springfox-swagger-ui:2.5.0')//swagger-ui
+     compile('io.springfox:springfox-swagger-ui:2.5.0')
      
-     compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-server')//引入的Eureka-server
-	
+     //引入的Eureka-server
+     //compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-server')
+     
+     // log4j2日志
+     compile('org.springframework.boot:spring-boot-starter-log4j2')
+     /*
+     <exclusions><!-- 去掉springboot默认配置 -->  
+        <exclusion>  
+            <groupId>org.springframework.boot</groupId>  
+            <artifactId>spring-boot-starter-logging</artifactId>  
+        </exclusion>  
+    </exclusions> */
+     
+}
+
+configurations {
+	// 应为使用log4j2,所以去掉boot本身自带的logging
+	compile.exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
 }
 
 test {
