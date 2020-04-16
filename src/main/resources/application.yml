@@ -9,13 +9,13 @@ api.swagger.version: 0.0.1
 
 #---------暂时注释掉Eureka服务配置---------
 # 指定该Eureka实例的主机名
-#eureka.instance.hostname: 127.0.0.1
+eureka.instance.hostname: 127.0.0.1
 #自身注册到Eureka Server上，默认为true
-#eureka.client.register-with-eureka: false
+eureka.client.register-with-eureka: false
 #从其他Eureka Server获取注册信息，单节点设置为false，集群情况下可设置为true
-#eureka.client.fetch-registry: false
+eureka.client.fetch-registry: false
 #多个地址用逗号分割，单节点可不配置
-#eureka.client.serviceUrl.defaultZone: http://127.0.0.1:${server.port}/eureka/
+eureka.client.serviceUrl.defaultZone: http://127.0.0.1:${server.port}/eureka/
 #调试时关闭eureka注册中心的保护机制
-#eureka.server.enable-self-preservation: false
+eureka.server.enable-self-preservation: false
 #---------暂时注释掉Eureka服务配置---------

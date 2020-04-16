@@ -2,9 +2,10 @@ package com.source.point.sourcePoint;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
 @SpringBootApplication
-//@EnableEurekaServer 暂时注释掉Eureka服务
+@EnableEurekaServer 
 public class SourcePointApplication {
 
 	public static void main(String[] args) {

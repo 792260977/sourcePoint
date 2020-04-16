@@ -34,10 +34,13 @@ dependencies {
      compile('io.springfox:springfox-swagger-ui:2.5.0')
      
      //引入的Eureka-server
-     //compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-server')
+     compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-server')
      
      // log4j2日志
      compile('org.springframework.boot:spring-boot-starter-log4j2')
+     
+     compile('org.apache.commons:commons-lang3:3.4')
+     
      /*
      <exclusions><!-- 去掉springboot默认配置 -->  
         <exclusion>  
