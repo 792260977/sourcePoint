@@ -11,6 +11,7 @@ import io.swagger.annotations.Api;
 @RequestMapping("/api")
 @Api(description = "没有Api注解则不写入文档", tags = "Test")
 public class Test {
+	 
 	
 	@ResponseBody
 	@GetMapping("/queryss")
