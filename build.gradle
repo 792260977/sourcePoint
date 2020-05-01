@@ -41,6 +41,10 @@ dependencies {
      
      compile('org.apache.commons:commons-lang3:3.4')
      
+     // excel导入
+     compile('org.apache.poi:poi:3.13')
+     compile('org.apache.poi:poi-ooxml:3.13')
+     
      /*
      <exclusions><!-- 去掉springboot默认配置 -->  
         <exclusion>  

@@ -7,10 +7,13 @@ import java.io.OutputStreamWriter;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -19,6 +22,7 @@ import com.source.point.sourcePoint.common.ResultCode;
 import com.source.point.sourcePoint.common.ServiceException;
 import com.source.point.sourcePoint.dto.dbsqlhandle.AutoSqlParam;
 import com.source.point.sourcePoint.dto.dbsqlhandle.AutoSqlReq;
+import com.source.point.sourcePoint.dto.excel.AutoSqlExcelModel;
 import com.source.point.sourcePoint.enums.ResouseType;
 import com.source.point.sourcePoint.service.DBsqlHandleService;
 
@@ -289,5 +293,32 @@ public class DBsqlHandleServiceImpl implements DBsqlHandleService {
 			}
 		}
 		return rlt;
+	}
+
+	@Override
+	public List<String> buildSqlDataList(List<AutoSqlExcelModel> list) {
+		if (CollectionUtils.isEmpty(list)) {
+			return Collections.emptyList();
+		}
+		List<String> rlt = new ArrayList<>();
+		// 第一行不要
+		for (int i = 0; i < list.size(); i++) {
+			AutoSqlExcelModel source = list.get(i);
+			String target = getStrval(source.getSort()) + SPLIT + getStrval(source.getButton()) + SPLIT
+					+ getStrval(source.getResourceGroup()) + SPLIT + getStrval(source.getResourceName()) + SPLIT
+					+ getStrval(source.getAppCode()) + SPLIT + getStrval(source.getParentMenuCode()) + SPLIT
+					+ getStrval(source.getMenuCode()) + SPLIT + getStrval(source.getResourceUrl()) + SPLIT
+					+ getStrval(source.getIcon());
+			rlt.add(target);
+		}
+		return rlt;
+	}
+	
+	private String getStrval(String str){
+		if(StringUtils.isBlank(str)){
+			return "NULL";
+		}else{
+			return str.trim();
+		}
 	}
 }
