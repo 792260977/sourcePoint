@@ -10,7 +10,7 @@ public class AutoSqlExcelModel {
 	@ExcelColumn(value = "是不是按钮", col = 2)
 	private String button;
 
-	@ExcelColumn(value = "是不是菜单", col = 3)
+	@ExcelColumn(value = "是否有下级菜单", col = 3)
 	private String resourceGroup;
 
 	@ExcelColumn(value = "资源名称", col = 4)
