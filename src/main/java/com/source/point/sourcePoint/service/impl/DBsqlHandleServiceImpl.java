@@ -154,7 +154,7 @@ public class DBsqlHandleServiceImpl implements DBsqlHandleService {
 					+ source.getResourceName()// resource_name
 					+ "', '" + source.getAppCode()// app_code
 					+ "', '" + source.getMenuCode()// menu_code
-					+ "', " + source.getIcon()// icon
+					+ "', " + (source.getIcon().equals("NULL") ? "NULL" : ("'" + source.getIcon() + "'"))// icon
 					+ ", "
 					// 是否还有上级菜单
 					+ (source.getParentMenuCode().equals("NULL") ? "NULL"
